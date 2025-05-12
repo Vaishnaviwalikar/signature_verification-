@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Signature Verification</title>
+    <style>
+        .b1 {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ee6bff, #0fcbf1);
+            /* Gradient Background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Slightly transparent white container */
+            border-radius: 10px;
+            /* Rounded Corners */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            /* Subtle Shadow */
+            text-align: center;
+            /* Center align the content inside the container */
+        }
+
+        .h1h {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-family: sans-serif;
+            /* Fun and stylish font */
+            color: #3e5155;
+            /* White Text Color */
+            font-size: 36px;
+            /* Larger Font Size */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Text Shadow */
+            letter-spacing: 3px;
+            /* Increased Letter Spacing */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333333;
+            text-transform: uppercase;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            display: block;
+            margin: 0 auto;
+            /* Center the select image box */
+            padding: 10px;
+            border: 2px solid #ff69b4;
+            /* Hot Pink Border */
+            border-radius: 5px;
+            /* Rounded Corners */
+            background-color: #fff;
+            /* White Box Background */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            width: 70%;
+            /* Adjust the width as needed */
+            cursor: pointer;
+            color: #ff69b4;
+            /* Hot Pink Text Color */
+        }
+
+        .file-info {
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .file-info span {
+            margin-right: 10px;
+        }
+
+        .preview {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .preview img {
+            max-width: 100%;
+            max-height: 200px;
+        }
+
+        .remove-file {
+            color: #ff0000;
+            cursor: pointer;
+        }
+
+        .remove-file::after {
+            content: 'X';
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            /* Add some top margin to separate the button */
+            background-color: #ff69b4;
+            /* Hot Pink Button Background */
+            color: linear-gradient(135deg, #ee6bff, #0fcbf1);
+            /* White Button Text */
+            padding: 10px 20px;
+            /* Increase padding for a more beautiful button */
+            border: none;
+            border-radius: 5px;
+            /* Rounded Corners */
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            /* Add a smooth transition effect */
+            text-transform: uppercase;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff1493;
+            /* Darker Hot Pink on Hover */
+        }
+
+        input[type="submit"]:active {
+            background-color: #ff1493;
+            /* Darker Hot Pink on Click */
+        }
+    </style>
+    <script>
+        // Your JavaScript functions here
+        function handleFileSelect(event) {
+            var file = event.target.files[0];
+            var preview = document.querySelector('.preview');
+            var fileInfo = document.querySelector('.file-info');
+            var reader = new FileReader();
+
+            reader.onload = function (event) {
+                var img = document.createElement('img');
+                img.src = event.target.result;
+                preview.innerHTML = '';
+                preview.appendChild(img);
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+                fileInfo.innerHTML = '<span>File: ' + file.name + '</span><span class="remove-file" onclick="removeFile()"></span>';
+            } else {
+                fileInfo.innerHTML = '';
+                preview.innerHTML = '';
+            }
+        }
+
+        function removeFile() {
+            var fileInput = document.getElementById('image');
+            fileInput.value = '';
+            var fileInfo = document.querySelector('.file-info');
+            var preview = document.querySelector('.preview');
+            fileInfo.innerHTML = '';
+            preview.innerHTML = '';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="b1">
+        <div class="container">
+            <h1 class="h1h">Machine Learning-Based Signature Verification</h1>
+            <form action="/verify" method="post" enctype="multipart/form-data">
+                <label for="image">Input image:</label>
+                <label class="custom-file-upload">
+                    <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png"
+                        onchange="handleFileSelect(event)" required>
+                    Select Image
+                </label>
+                <div class="file-info"></div>
+                <div class="preview"></div>
+                <input type="submit" value="Verify">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

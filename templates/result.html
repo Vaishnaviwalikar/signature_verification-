@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verification Result</title>
+    <style>
+        .b1 {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ee6bff, #0fcbf1);
+            /* Gradient Background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Slightly transparent white container */
+            border-radius: 5px;
+            /* Rounded Corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Subtle Shadow */
+            text-align: center;
+            /* Center align the content inside the container */
+        }
+
+        .h1h {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-family: sans-serif;
+            /* Fun and stylish font */
+            color: #3e5155;
+            /* Text Color */
+            font-size: 24px;
+            /* Font Size */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /* Text Shadow */
+            letter-spacing: 3px;
+            /* Letter Spacing */
+        }
+
+        p {
+            text-align: center;
+            color: #ff69b4; /* Highlighted Text Color */
+            font-size: 36px; /* Larger Font Size */
+            font-weight: bold; /* Bold Text */
+            font-family: serif;
+            text-transform: uppercase;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 200px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            /* Hot Pink Button Background */
+            color: #fff;
+            /* White Button Text */
+            border: none;
+            border-radius: 5px;
+            /* Rounded Corners */
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .button:hover {
+            background-color: #ff1493;
+            /* Darker Hot Pink on Hover */
+        }
+
+        .button:active {
+            background-color: #ff1493;
+            /* Darker Hot Pink on Click */
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var result = document.querySelector(".result");
+            var button = document.querySelector(".button");
+
+            button.addEventListener("click", function() {
+                window.location.href = "/";
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="b1">
+        <div class="container">
+            <h1 class="h1h">Machine Learning-Based Signature Verification</h1>
+            <p>{{ result }}</p>
+            <!--<div class="preprocessed-image-container">
+                <img src="{{ preprocessed_image_url }}" alt="Preprocessed Image">
+            </div>-->
+            <a class="button">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>

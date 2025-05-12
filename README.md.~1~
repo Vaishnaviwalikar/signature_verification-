@@ -1,0 +1,109 @@
+# Signature Verification using SVM and Flask
+
+This project implements a signature verification system using Support Vector Machines (SVM) in Python and serves it through a Flask web application. The model uses image processing techniques to analyze and classify signatures as genuine or forged.
+
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Project Overview
+Signature verification plays a crucial role in identity verification for security-sensitive transactions. This project leverages machine learning (specifically, an SVM classifier) to verify signatures based on image analysis. 
+
+The Flask web application provides a user interface to upload signatures for verification, where the backend processes the image and uses the SVM model to classify it as genuine or forged.
+
+## Features
+- **SVM Classifier**: Built-in SVM classifier for robust verification.
+- **Image Processing**: Uses OpenCV and NumPy for preprocessing signature images.
+- **Interactive Web Interface**: Flask-based web app to upload and verify signatures.
+- **Accuracy Reporting**: Displays classification accuracy and performance metrics.
+
+## Installation
+Follow these steps to set up the project on your local machine.
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/Signature-Verification-using-SVM-and-Flask.git
+cd Signature-Verification-using-SVM-and-Flask
+```
+
+### 2. Set Up Virtual Environment
+Create and activate a virtual environment for the project.
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment (Windows)
+venv\Scripts\activate
+
+# Activate virtual environment (Mac/Linux)
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+Install the necessary packages listed in `requirements.txt`.
+```bash
+pip install -r requirements.txt
+pip install opencv-python==4.5.3 numpy==1.21.0 scikit-learn==0.24.2 Flask
+```
+
+### 4. Update Paths for Data Files
+Ensure that the paths to your data files in the code match your local file structure.
+
+## Usage
+After completing the installation, start the Flask application as follows:
+
+```bash
+python app.py
+```
+
+The application will be available at `http://127.0.0.1:5000/`.
+
+1. Open the URL in your browser.
+2. Upload the signature image you want to verify.
+3. The app will classify the image as "genuine" or "forged."
+
+## Project Structure
+The project directory is structured as follows:
+
+```plaintext
+Signature-Verification-using-SVM-and-Flask/
+├── app.py                  # Main Flask application file
+├── requirements.txt        # Python dependencies
+├── static/                 # Static files (CSS, JS)
+├── templates/              # HTML templates for Flask
+├── model/                  # SVM model and related files
+└── README.md               # Project README file
+```
+
+## Results
+### Model Performance
+- **Accuracy**: 90% (Example)
+- **Precision**: 88%
+- **Recall**: 87%
+
+> Note: These metrics are for illustration. Actual performance may vary based on data and model parameters.
+
+## Contributing
+We welcome contributions to enhance the project. Here’s how you can help:
+
+1. Fork the project.
+2. Create a new branch.
+3. Make your changes.
+4. Submit a pull request.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+Thank you for checking out this project! We hope this tool assists in your signature verification needs.
+
+--- 
